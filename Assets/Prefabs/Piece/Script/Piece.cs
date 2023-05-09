@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
-    public float fallingSpeed = 5f;
+
+    public float speed = 1f;
+    public float animationSpeed = 5f;
     public bool isDebuging = false;
     public bool[,] matrix;
     public string VariantName = "L";
@@ -25,9 +27,12 @@ public class Piece : MonoBehaviour
         {
             if (transform.position.z < 20)
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * fallingSpeed * 2);
+                transform.Translate(Vector3.forward * Time.deltaTime * animationSpeed * 2);
             }
-            transform.Translate(Vector3.down * Time.deltaTime * fallingSpeed);
+            transform.Translate(Vector3.down * Time.deltaTime * animationSpeed);
+        } else
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * speed);
         }
     }
 
