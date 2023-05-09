@@ -7,10 +7,14 @@ public class PlayerMovment : MonoBehaviour
     public string PlayerId = Globals.DEFAULT_PLAYER_NAME;
     public PlayerStats P_Stats;
     public GameObject bullet;
-    private bool isMoving;
     public Vector3 currentPos;
 
+    private bool isMoving;
     private Coroutine courtine;
+
+    public GameObject AimRender;
+    private GameObject aimInstance;
+    private RaycastHit2D aim;
 
     void Start()
     {
@@ -18,6 +22,7 @@ public class PlayerMovment : MonoBehaviour
         PlayerEvents.ON_MOVE += Move;
         PlayerEvents.ON_SET_POS += SetPos;
         PlayerEvents.ON_FIRE += Fire;
+        aimInstance = Instantiate(AimRender, transform.position, Quaternion.Euler(Vector3.zero));
     }
 
 
@@ -65,5 +70,19 @@ public class PlayerMovment : MonoBehaviour
         }
         transform.position = currentPos;
         isMoving = false;
+    }
+
+    private void Update()
+    {
+        int distance = 300;
+        aim = Physics2D.Raycast(transform.position, Vector2.up, distance);
+
+        aimInstance.transform.position = new Vector3(0, -100, -400);
+
+        if (aim.collider && aim.collider.tag == "Tile")
+        {
+            aimInstance.transform.position = new Vector3(currentPos.x, aim.collider.transform.position.y - 1, currentPos.z);
+            Debug.DrawRay(transform.position, Vector2.up * aim.collider.transform.position.y, Color.red);
+        } 
     }
 }
