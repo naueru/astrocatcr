@@ -42,7 +42,7 @@ public class PlayerMovment : MonoBehaviour
             StopCoroutine(courtine);
             isMoving = false;
         }
-        courtine = StartCoroutine(MoveCoroutine());    
+        courtine = StartCoroutine(MoveCoroutine());
     }
 
     void Fire(string id)
