@@ -29,11 +29,6 @@ public class PlayerMovment : MonoBehaviour
     public void SetPos(string id, int position) {
         if (PlayerId != id) return;
         currentPos = new Vector3(position, currentPos.y, currentPos.z);
-        if (isMoving)
-        {
-            StopCoroutine(courtine);
-            isMoving = false;
-        }
         courtine = StartCoroutine(MoveCoroutine());
     }
 

@@ -5,4 +5,5 @@ public class PlayerStats : ScriptableObject
 {
     public float moveSpeed = 0.2f;
     public float fireSpeed = 0.2f;
+    public int score = 0;
 }

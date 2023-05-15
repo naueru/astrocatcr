@@ -37,7 +37,6 @@ public class MultiplayerConnection : MonoBehaviour
             var users = response.GetValue<List<BE_EVENT>>(0);
             Debug.Log($"${users[0].id} ${users[0].value.position}");
 
-
             if (PlayerEvents.ON_NEW_PLAYER != null)
             {
                 for(int i = 0; i < users.Count; i++)

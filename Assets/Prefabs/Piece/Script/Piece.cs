@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
-
+    AudioSource audioData;
     public float speed = 1f;
     public float animationSpeed = 5f;
     public bool isDebuging = false;
@@ -16,6 +16,7 @@ public class Piece : MonoBehaviour
 
     void Start()
     {
+        audioData = GetComponent<AudioSource>();
         PieceVariants creator = new PieceVariants();
         matrix = creator.GetVariantByName(VariantName);
         InitMatrix();
@@ -92,7 +93,11 @@ public class Piece : MonoBehaviour
         AttachTile(x, y, 1);
 
         isComplete = CheckCompletedPiece();
-        if(isComplete) DisableCollidersInChildren(transform);
+        if (isComplete)
+        {
+            audioData.Play(0);
+            DisableCollidersInChildren(transform);
+        }
 
     }
 
