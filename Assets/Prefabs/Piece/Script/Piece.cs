@@ -24,14 +24,15 @@ public class Piece : MonoBehaviour
 
     void Update()
     {
-        if(isComplete)
+        if (isComplete)
         {
             if (transform.position.z < 20)
             {
                 transform.Translate(Vector3.forward * Time.deltaTime * animationSpeed * 2);
             }
             transform.Translate(Vector3.down * Time.deltaTime * animationSpeed);
-        } else
+        }
+        else
         {
             transform.Translate(Vector3.down * Time.deltaTime * speed);
         }
@@ -45,11 +46,13 @@ public class Piece : MonoBehaviour
 
     public void MatrixToTile()
     {
-        for (int x = 0; x < matrix.GetLength(0); x++)
+        int width = matrix.GetLength(1);
+        int height = matrix.GetLength(0);
+        for (int y = 0; y < height; y++)
         {
-            for (int y = 0; y < matrix.GetLength(1); y++)
+            for (int x = 0; x < width; x++)
             {
-                if(matrix[x, y])
+                if(matrix[y, x])
                 {
                     AttachTile(x, y);
                 }
@@ -59,37 +62,42 @@ public class Piece : MonoBehaviour
 
     public bool CheckCompletedPiece()
     {
-        for (int x = 0; x < matrix.GetLength(0); x++)
+        int width = matrix.GetLength(1);
+        int height = matrix.GetLength(0);
+        for (int y = 0; y < height; y++)
         {
-            for (int y = 0; y < matrix.GetLength(1); y++)
-            {                
-                if (matrix[x, y] == false) return false;
+            for (int x = 0; x < width; x++)
+            {
+                if (matrix[y, x] == false) return false;
             }
         }
         return true;
     }
-    
+
     public void AddTile(int x, int y)
     {
         if (isComplete) return;
+        int width = matrix.GetLength(1);
+        int height = matrix.GetLength(0);
 
-        if (y == matrix.GetLength(1) - 1)
-        {           
-            bool[,] temp = new bool[matrix.GetLength(0), matrix.GetLength(1) + 1];
-            int height = temp.GetLength(1);
+        if (y == height - 1)
+        {
+            bool[,] temp = new bool[height + 1, width];
+            int tempWidth = temp.GetLength(1);
+            int tempHeight = temp.GetLength(0);
 
-            for (int newX = 0; newX < temp.GetLength(0); newX++)
+            for (int newY = 0; newY < tempHeight; newY++)
             {
-                for (int newY = 0; newY < height; newY++)
+                for (int newX = 0; newX < tempWidth; newX++)
                 {
-                    temp[newX, newY] = newY == height -1 ?  false : matrix[newX, newY];
+                    temp[newY, newX] = newY == tempHeight - 1 ? false : matrix[newY, newX];
                 }
             }
-           matrix = temp;          
+           matrix = temp;
         }
 
-        matrix[x, y + 1] = true;
-     
+        matrix[y + 1, x] = true;
+
         AttachTile(x, y, 1);
 
         isComplete = CheckCompletedPiece();
