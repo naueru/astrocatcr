@@ -56,7 +56,7 @@ public class PlayerMovment : MonoBehaviour
         isMoving = true;
         Vector3 startPosition = transform.position;
         float elapsedTime = 0.0f;
-        
+
         while (elapsedTime < P_Stats.moveSpeed)
         {
             transform.position = Vector3.Lerp(startPosition, currentPos , elapsedTime / P_Stats.moveSpeed);
@@ -78,6 +78,6 @@ public class PlayerMovment : MonoBehaviour
         {
             aimInstance.transform.position = new Vector3(currentPos.x, aim.collider.transform.position.y - 1, currentPos.z);
             Debug.DrawRay(transform.position, Vector2.up * aim.collider.transform.position.y, Color.red);
-        } 
+        }
     }
 }

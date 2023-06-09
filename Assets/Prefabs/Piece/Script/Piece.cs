@@ -8,11 +8,14 @@ public class Piece : MonoBehaviour
     AudioSource audioData;
     public float speed = 1f;
     public float animationSpeed = 5f;
+    public float dropSpeed = 20f;
     public bool isDebuging = false;
     public bool[,] matrix;
     public string VariantName = "L";
     public GameObject tileObj;
     private bool isComplete = false;
+    private const float DESTROY_COORD = -20;
+    GameObject targetPieceSocket;
 
     void Start()
     {
@@ -26,16 +29,14 @@ public class Piece : MonoBehaviour
     {
         if (isComplete)
         {
-            if (transform.position.z < 20)
-            {
-                transform.Translate(Vector3.forward * Time.deltaTime * animationSpeed * 2);
-            }
-            transform.Translate(Vector3.down * Time.deltaTime * animationSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, targetPieceSocket.transform.position, Time.deltaTime * dropSpeed);
         }
         else
         {
-            transform.Translate(Vector3.down * Time.deltaTime * speed);
+            transform.Translate(speed * Time.deltaTime * Vector3.down);
         }
+
+        if (transform.position.y <= DESTROY_COORD) Destroy(gameObject);
     }
 
     public void InitMatrix()
@@ -103,10 +104,19 @@ public class Piece : MonoBehaviour
         isComplete = CheckCompletedPiece();
         if (isComplete)
         {
+            targetPieceSocket = FindClosestPieceSocket();
             audioData.Play(0);
             DisableCollidersInChildren(transform);
-        }
+            Transform meshList = transform.Find("CompletedPieceMesh");
+            int rnd = Random.Range(0, meshList.childCount -1);
+            Transform mesh = meshList.GetChild(rnd);
+            mesh.gameObject.SetActive(true);
 
+            foreach (Transform child in transform)
+            {
+                if (child.tag == "Tile") child.gameObject.SetActive(false);
+            }
+        }
     }
 
     void DisableCollidersInChildren(Transform parent)
@@ -127,6 +137,26 @@ public class Piece : MonoBehaviour
         Tile ScriptTile = newTile.GetComponent<Tile>();
         ScriptTile.SetPos(x, y + deltaY);
         newTile.transform.parent = gameObject.transform;
+    }
+
+    public GameObject FindClosestPieceSocket()
+    {
+        GameObject[] pieceSockets;
+        pieceSockets = GameObject.FindGameObjectsWithTag("PieceSocket");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject pieceSocket in pieceSockets)
+        {
+            Vector3 diff = pieceSocket.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = pieceSocket;
+                distance = curDistance;
+            }
+        }
+        return closest;
     }
 
 }

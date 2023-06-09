@@ -24,7 +24,7 @@ public class Controller : MonoBehaviour
             _fireThrottle.Run(RunFire, P1.fireSpeed);
         }
     }
-    
+
     void RunMove () {
         if(PlayerEvents.ON_MOVE != null) {
             int floored = horizontal <= 0f ? -1 : 1;
