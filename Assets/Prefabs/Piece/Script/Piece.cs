@@ -91,7 +91,7 @@ public class Piece : MonoBehaviour
             {
                 for (int newX = 0; newX < tempWidth; newX++)
                 {
-                    temp[newY, newX] = newY == tempHeight - 1 ? false : matrix[newY, newX];
+                    temp[newY, newX] = newY != tempHeight - 1 && matrix[newY, newX];
                 }
             }
            matrix = temp;
@@ -114,7 +114,7 @@ public class Piece : MonoBehaviour
 
             foreach (Transform child in transform)
             {
-                if (child.tag == "Tile") child.gameObject.SetActive(false);
+                if (child.CompareTag("Tile")) child.gameObject.SetActive(false);
             }
         }
     }

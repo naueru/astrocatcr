@@ -14,9 +14,9 @@ public class Background : MonoBehaviour
     {
         if (transform.position.y <= -PANE_HEIGHT)
         {
-            Vector3 temp = new Vector3(0, -transform.position.y + PANE_HEIGHT, 0);
+            Vector3 temp = new(0, -transform.position.y + PANE_HEIGHT, 0);
             transform.position += temp;
         }
-        transform.Translate(Vector3.down * Time.deltaTime * speed);
+        transform.Translate(speed * Time.deltaTime * Vector3.down);
     }
 }
