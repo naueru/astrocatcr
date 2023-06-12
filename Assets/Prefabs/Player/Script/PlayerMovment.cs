@@ -16,6 +16,8 @@ public class PlayerMovment : MonoBehaviour
     private GameObject aimInstance;
     private RaycastHit2D aim;
 
+    public float SHIP_ROTATION_ANGLE = 30f;
+
     void Start()
     {
         currentPos = transform.position;
@@ -25,7 +27,11 @@ public class PlayerMovment : MonoBehaviour
         aimInstance = Instantiate(AimRender, transform.position, Quaternion.Euler(Vector3.zero));
     }
 
-
+    void SetShipRotation(float angle)
+    {
+        gameObject.transform.GetChild(0).gameObject.transform.rotation = Quaternion.Euler(0, angle, 0);
+        //gameObject.transform.rotation = Quaternion.Euler(0, angle, 0);
+    }
     public void SetPos(string id, int position) {
         if (PlayerId != id) return;
         currentPos = new Vector3(position, currentPos.y, currentPos.z);
@@ -35,10 +41,22 @@ public class PlayerMovment : MonoBehaviour
     void Move (string id, int direction) {
 
         if (PlayerId != id) return;
-        currentPos =  new Vector3(currentPos.x + direction * Globals.STEP_SIZE, currentPos.y, currentPos.z);
+        float currentRotation = gameObject.transform.GetChild(0).gameObject.transform.rotation.y;
+        // float currentRotation = gameObject.transform.rotation.y;
+        currentPos = new Vector3(currentPos.x + direction * Globals.STEP_SIZE, currentPos.y, currentPos.z);
         MultiplayerConnection.EmitMove((int)currentPos.x);
 
+        if (isMoving)
+        {
+            if (direction < 0 && currentRotation != SHIP_ROTATION_ANGLE) SetShipRotation(SHIP_ROTATION_ANGLE);
+            if (direction > 0 && currentRotation != -SHIP_ROTATION_ANGLE) SetShipRotation(-SHIP_ROTATION_ANGLE);
+        } else
+        {
+            if (currentRotation != 0) SetShipRotation(0);
+        }
+
         if (isMoving) {
+            Debug.Log($"Moving: ${direction}");
             StopCoroutine(courtine);
             isMoving = false;
         }
