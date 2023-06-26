@@ -8,11 +8,14 @@ public class Piece : MonoBehaviour
     AudioSource audioData;
     public float speed = 1f;
     public float animationSpeed = 5f;
+    public float dropSpeed = 20f;
     public bool isDebuging = false;
     public bool[,] matrix;
     public string VariantName = "L";
     public GameObject tileObj;
     private bool isComplete = false;
+    private const float DESTROY_COORD = -20;
+    GameObject targetPieceSocket;
 
     void Start()
     {
@@ -24,17 +27,16 @@ public class Piece : MonoBehaviour
 
     void Update()
     {
-        if(isComplete)
+        if (isComplete)
         {
-            if (transform.position.z < 20)
-            {
-                transform.Translate(Vector3.forward * Time.deltaTime * animationSpeed * 2);
-            }
-            transform.Translate(Vector3.down * Time.deltaTime * animationSpeed);
-        } else
-        {
-            transform.Translate(Vector3.down * Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, targetPieceSocket.transform.position, Time.deltaTime * dropSpeed);
         }
+        else
+        {
+            transform.Translate(speed * Time.deltaTime * Vector3.down);
+        }
+
+        if (transform.position.y <= DESTROY_COORD) Destroy(gameObject);
     }
 
     public void InitMatrix()
@@ -45,11 +47,13 @@ public class Piece : MonoBehaviour
 
     public void MatrixToTile()
     {
-        for (int x = 0; x < matrix.GetLength(0); x++)
+        int width = matrix.GetLength(1);
+        int height = matrix.GetLength(0);
+        for (int y = 0; y < height; y++)
         {
-            for (int y = 0; y < matrix.GetLength(1); y++)
+            for (int x = 0; x < width; x++)
             {
-                if(matrix[x, y])
+                if(matrix[y, x])
                 {
                     AttachTile(x, y);
                 }
@@ -59,46 +63,60 @@ public class Piece : MonoBehaviour
 
     public bool CheckCompletedPiece()
     {
-        for (int x = 0; x < matrix.GetLength(0); x++)
+        int width = matrix.GetLength(1);
+        int height = matrix.GetLength(0);
+        for (int y = 0; y < height; y++)
         {
-            for (int y = 0; y < matrix.GetLength(1); y++)
-            {                
-                if (matrix[x, y] == false) return false;
+            for (int x = 0; x < width; x++)
+            {
+                if (matrix[y, x] == false) return false;
             }
         }
         return true;
     }
-    
+
     public void AddTile(int x, int y)
     {
         if (isComplete) return;
+        int width = matrix.GetLength(1);
+        int height = matrix.GetLength(0);
 
-        if (y == matrix.GetLength(1) - 1)
-        {           
-            bool[,] temp = new bool[matrix.GetLength(0), matrix.GetLength(1) + 1];
-            int height = temp.GetLength(1);
+        if (y == height - 1)
+        {
+            bool[,] temp = new bool[height + 1, width];
+            int tempWidth = temp.GetLength(1);
+            int tempHeight = temp.GetLength(0);
 
-            for (int newX = 0; newX < temp.GetLength(0); newX++)
+            for (int newY = 0; newY < tempHeight; newY++)
             {
-                for (int newY = 0; newY < height; newY++)
+                for (int newX = 0; newX < tempWidth; newX++)
                 {
-                    temp[newX, newY] = newY == height -1 ?  false : matrix[newX, newY];
+                    temp[newY, newX] = newY != tempHeight - 1 && matrix[newY, newX];
                 }
             }
-           matrix = temp;          
+           matrix = temp;
         }
 
-        matrix[x, y + 1] = true;
-     
+        matrix[y + 1, x] = true;
+
         AttachTile(x, y, 1);
 
         isComplete = CheckCompletedPiece();
         if (isComplete)
         {
+            targetPieceSocket = FindClosestPieceSocket();
             audioData.Play(0);
             DisableCollidersInChildren(transform);
-        }
+            Transform meshList = transform.Find("CompletedPieceMesh");
+            int rnd = Random.Range(0, meshList.childCount -1);
+            Transform mesh = meshList.GetChild(rnd);
+            mesh.gameObject.SetActive(true);
 
+            foreach (Transform child in transform)
+            {
+                if (child.CompareTag("Tile")) child.gameObject.SetActive(false);
+            }
+        }
     }
 
     void DisableCollidersInChildren(Transform parent)
@@ -119,6 +137,26 @@ public class Piece : MonoBehaviour
         Tile ScriptTile = newTile.GetComponent<Tile>();
         ScriptTile.SetPos(x, y + deltaY);
         newTile.transform.parent = gameObject.transform;
+    }
+
+    public GameObject FindClosestPieceSocket()
+    {
+        GameObject[] pieceSockets;
+        pieceSockets = GameObject.FindGameObjectsWithTag("PieceSocket");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject pieceSocket in pieceSockets)
+        {
+            Vector3 diff = pieceSocket.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = pieceSocket;
+                distance = curDistance;
+            }
+        }
+        return closest;
     }
 
 }

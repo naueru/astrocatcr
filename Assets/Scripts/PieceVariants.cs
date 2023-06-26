@@ -2,25 +2,30 @@
 
 public class PieceVariants
 {
-    private bool[,] L = { 
+    private bool[,] L = {
         { true, true, true },
         { true, false, false },
         { true, false, false },
     };
     private bool[,] L_INVERTED = {
-        { true, false, false },
-        { true, false, false },
         { true, true, true },
+        { false, false, true },
+        { false, false, true },
     };
     private bool[,] U = {
         { true, true, true },
-        { true, false, false },
-        { true, true, true },
+        { true, false, true },
+        { true, false, true },
     };
     private bool[,] ROW = {
-        { true, false },
-        { true, false },
-        { true, false }
+        { true, true, true },
+        { false, false, false },
+    };
+    private bool[,] T = {
+        { true, true, true },
+        { false, true, false },
+        { false, true, false },
+        { false, true, false },
     };
 
     public bool[,] GetVariantByName (string name)
@@ -35,8 +40,10 @@ public class PieceVariants
                 return U;
             case "ROW":
                 return ROW;
+            case "T":
+                return T;
             default:
-                return L;                
+                return L;
         }
     }
 }

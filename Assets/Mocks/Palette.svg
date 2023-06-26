@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="158.75mm"
+   height="105.83333mm"
+   viewBox="0 0 158.75 105.83333"
+   version="1.1"
+   id="svg25626"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="Palette.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview25628"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     showborder="true"
+     inkscape:zoom="1"
+     inkscape:cx="356"
+     inkscape:cy="237"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid38809"
+       spacingx="26.458333"
+       spacingy="26.458333"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs25623">
+    <linearGradient
+       id="GRAY_20"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#cccccc;stop-opacity:1;"
+         offset="0"
+         id="stop34238" />
+    </linearGradient>
+    <linearGradient
+       id="GRAY_50"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#808080;stop-opacity:1;"
+         offset="0"
+         id="stop34178" />
+    </linearGradient>
+    <linearGradient
+       id="BLACK"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop31212" />
+    </linearGradient>
+    <linearGradient
+       id="WHITE"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop30736" />
+    </linearGradient>
+    <linearGradient
+       id="SUNFLOWER"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#ffc312;stop-opacity:1;"
+         offset="0"
+         id="stop17324" />
+    </linearGradient>
+    <linearGradient
+       id="RADIANT_YELLOW"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#f79f1f;stop-opacity:1;"
+         offset="0"
+         id="stop13160" />
+    </linearGradient>
+    <linearGradient
+       id="PUFFINS_BILL"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#ee5a24;stop-opacity:1;"
+         offset="0"
+         id="stop17330" />
+    </linearGradient>
+    <linearGradient
+       id="RED_PIGMENT"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#ea2027;stop-opacity:1;"
+         offset="0"
+         id="stop14546" />
+    </linearGradient>
+    <linearGradient
+       id="BARA_RED"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#ed4c67;stop-opacity:1;"
+         offset="0"
+         id="stop18845" />
+    </linearGradient>
+    <linearGradient
+       id="ENERGOS"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#c4e538;stop-opacity:1;"
+         offset="0"
+         id="stop17336" />
+    </linearGradient>
+    <linearGradient
+       id="ANDROID_GREEN"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#a3cb38;stop-opacity:1;"
+         offset="0"
+         id="stop17342" />
+    </linearGradient>
+    <linearGradient
+       id="PIXELATED_GRASS"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#009432;stop-opacity:1;"
+         offset="0"
+         id="stop17348" />
+    </linearGradient>
+    <linearGradient
+       id="TURKISH_AQUA"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#006266;stop-opacity:1;"
+         offset="0"
+         id="stop17318" />
+    </linearGradient>
+    <linearGradient
+       id="VERY_BERRY"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#b53471;stop-opacity:1;"
+         offset="0"
+         id="stop19058" />
+    </linearGradient>
+    <linearGradient
+       id="BLUE_MARTINA"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#12cbc4;stop-opacity:1;"
+         offset="0"
+         id="stop17354" />
+    </linearGradient>
+    <linearGradient
+       id="MEDITERRANEAN_SEA"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#1289a7;stop-opacity:1;"
+         offset="0"
+         id="stop17360" />
+    </linearGradient>
+    <linearGradient
+       id="MERCHANT_MARINE_BLUE"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#0652dd;stop-opacity:1;"
+         offset="0"
+         id="stop17366" />
+    </linearGradient>
+    <linearGradient
+       id="2000_LEAGUES_UNDER_THE_SEA"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#1b1464;stop-opacity:1;"
+         offset="0"
+         id="stop17174" />
+    </linearGradient>
+    <linearGradient
+       id="HOLLYHOCK"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#833471;stop-opacity:1;"
+         offset="0"
+         id="stop19478" />
+    </linearGradient>
+    <linearGradient
+       id="LAVENDER_ROSE"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#fda7df;stop-opacity:1;"
+         offset="0"
+         id="stop17579" />
+    </linearGradient>
+    <linearGradient
+       id="LAVENDER_TEA"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#d980fa;stop-opacity:1;"
+         offset="0"
+         id="stop17930" />
+    </linearGradient>
+    <linearGradient
+       id="FORGOTTEN_PURPLE"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#9980fa;stop-opacity:1;"
+         offset="0"
+         id="stop17936" />
+    </linearGradient>
+    <linearGradient
+       id="CIRCUMORBITAL_RING"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#5758bb;stop-opacity:1;"
+         offset="0"
+         id="stop18701" />
+    </linearGradient>
+    <linearGradient
+       id="MAGENTA_PURPLE"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#6f1e51;stop-opacity:1;"
+         offset="0"
+         id="stop20410" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:url(#BLACK);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41410"
+       width="26.458332"
+       height="26.458332"
+       x="0"
+       y="0" />
+    <rect
+       style="fill:url(#GRAY_50);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41412"
+       width="26.458332"
+       height="26.458332"
+       x="0"
+       y="26.458332" />
+    <rect
+       style="fill:url(#GRAY_20);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41414"
+       width="26.458332"
+       height="26.458332"
+       x="0"
+       y="52.916664" />
+    <rect
+       style="fill:url(#WHITE);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41416"
+       width="26.458332"
+       height="26.458332"
+       x="0"
+       y="79.375" />
+    <rect
+       style="fill:url(#SUNFLOWER);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41418"
+       width="26.458332"
+       height="26.458332"
+       x="26.458332"
+       y="0" />
+    <rect
+       style="fill:url(#RADIANT_YELLOW);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41420"
+       width="26.458332"
+       height="26.458332"
+       x="26.458332"
+       y="26.458332" />
+    <rect
+       style="fill:url(#PUFFINS_BILL);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41422"
+       width="26.458332"
+       height="26.458332"
+       x="26.458332"
+       y="52.916664" />
+    <rect
+       style="fill:url(#RED_PIGMENT);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41426"
+       width="26.458332"
+       height="26.458332"
+       x="26.458332"
+       y="79.375" />
+    <rect
+       style="fill:url(#ENERGOS);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41428"
+       width="26.458332"
+       height="26.458332"
+       x="52.916664"
+       y="0" />
+    <rect
+       style="fill:url(#ANDROID_GREEN);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41430"
+       width="26.458332"
+       height="26.458332"
+       x="52.916664"
+       y="26.458332" />
+    <rect
+       style="fill:url(#PIXELATED_GRASS);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41432"
+       width="26.458332"
+       height="26.458332"
+       x="52.916664"
+       y="52.916664" />
+    <rect
+       style="fill:url(#TURKISH_AQUA);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41434"
+       width="26.458332"
+       height="26.458332"
+       x="52.916664"
+       y="79.375" />
+    <rect
+       style="fill:url(#BLUE_MARTINA);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41436"
+       width="26.458332"
+       height="26.458332"
+       x="79.375"
+       y="0" />
+    <rect
+       style="fill:url(#MEDITERRANEAN_SEA);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41438"
+       width="26.458332"
+       height="26.458332"
+       x="79.375"
+       y="26.458332" />
+    <rect
+       style="fill:url(#MERCHANT_MARINE_BLUE);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41440"
+       width="26.458332"
+       height="26.458332"
+       x="79.375"
+       y="52.916664" />
+    <rect
+       style="fill:url(#2000_LEAGUES_UNDER_THE_SEA);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41442"
+       width="26.458332"
+       height="26.458332"
+       x="79.375"
+       y="79.375" />
+    <rect
+       style="fill:url(#LAVENDER_ROSE);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41444"
+       width="26.458332"
+       height="26.458332"
+       x="105.83333"
+       y="0" />
+    <rect
+       style="fill:url(#LAVENDER_TEA);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41446"
+       width="26.458332"
+       height="26.458332"
+       x="105.83333"
+       y="26.458332" />
+    <rect
+       style="fill:url(#FORGOTTEN_PURPLE);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41448"
+       width="26.458332"
+       height="26.458332"
+       x="105.83333"
+       y="52.916664" />
+    <rect
+       style="fill:url(#CIRCUMORBITAL_RING);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41450"
+       width="26.458332"
+       height="26.458332"
+       x="105.83333"
+       y="79.375" />
+    <rect
+       style="fill:url(#BARA_RED);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41452"
+       width="26.458332"
+       height="26.458332"
+       x="132.29167"
+       y="0" />
+    <rect
+       style="fill:url(#VERY_BERRY);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41454"
+       width="26.458332"
+       height="26.458332"
+       x="132.29167"
+       y="26.458332" />
+    <rect
+       style="fill:url(#HOLLYHOCK);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41456"
+       width="26.458332"
+       height="26.458332"
+       x="132.29167"
+       y="52.916664" />
+    <rect
+       style="fill:url(#MAGENTA_PURPLE);fill-opacity:1;stroke:none;stroke-width:1"
+       id="rect41458"
+       width="26.458332"
+       height="26.458332"
+       x="132.29167"
+       y="79.375" />
+  </g>
+</svg>
